@@ -365,8 +365,23 @@ function getSpiralMatrix(/* size */) {
  *    [7, 8, 9]         [9, 6, 3]
  *  ]                 ]
  */
-function rotateMatrix(/* matrix */) {
-  throw new Error('Not implemented');
+function rotateMatrix(matrix) {
+  const returnArr = matrix;
+  const rotateArr = [];
+  for (let i = 0; i < matrix.length; i += 1) {
+    rotateArr[i] = Array(matrix[i].length).fill('');
+  }
+
+  for (let i = 0; i < matrix.length; i += 1) {
+    for (let j = 0; j < matrix[i].length; j += 1) {
+      rotateArr[j][matrix[j].length - 1 - i] = matrix[i][j];
+    }
+  }
+
+  for (let i = 0; i < rotateArr.length; i += 1) {
+    returnArr[i] = rotateArr[i];
+  }
+  return returnArr;
 }
 
 /**
@@ -385,6 +400,29 @@ function rotateMatrix(/* matrix */) {
  */
 function sortByAsc(/* arr */) {
   throw new Error('Not implemented');
+  // const sortedArr = arr;
+  // let isSwapped = false;
+
+  // for (let i = 0; i < sortedArr.length - 1; i += 1) {
+  //   for (let j = 0; j < sortedArr.length - i - 1; j += 1) {
+  //     if (sortedArr[j] > sortedArr[j + 1]) {
+  //       isSwapped = true;
+  //       const temp = sortedArr[j];
+  //       sortedArr[j] = sortedArr[j + 1];
+  //       sortedArr[j + 1] = temp;
+  //     }
+  //     if (j !== 0) {
+  //       if (sortedArr[j] < sortedArr[j - 1]) {
+  //         const temp = sortedArr[j];
+  //         sortedArr[j] = sortedArr[j - 1];
+  //         sortedArr[j - 1] = temp;
+  //       }
+  //     }
+  //   }
+  //   if (!isSwapped) break;
+  // }
+
+  // return sortedArr;
 }
 
 /**
