@@ -369,7 +369,7 @@ function rotateMatrix(matrix) {
   const returnArr = matrix;
   const rotateArr = [];
   for (let i = 0; i < matrix.length; i += 1) {
-    rotateArr[i] = Array(matrix[i].length).fill('');
+    rotateArr[i] = [];
   }
 
   for (let i = 0; i < matrix.length; i += 1) {
