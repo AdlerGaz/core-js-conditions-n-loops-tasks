@@ -459,31 +459,32 @@ function rotateMatrix(matrix) {
  *  [2, 9, 5, 9]    => [2, 5, 9, 9]
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
-function sortByAsc(/* arr */) {
-  throw new Error('Not implemented');
-  // const sortedArr = arr;
-  // let isSwapped = false;
+function sortByAsc(arr) {
+  const sortArr = arr;
 
-  // for (let i = 0; i < sortedArr.length - 1; i += 1) {
-  //   for (let j = 0; j < sortedArr.length - i - 1; j += 1) {
-  //     if (sortedArr[j] > sortedArr[j + 1]) {
-  //       isSwapped = true;
-  //       const temp = sortedArr[j];
-  //       sortedArr[j] = sortedArr[j + 1];
-  //       sortedArr[j + 1] = temp;
-  //     }
-  //     if (j !== 0) {
-  //       if (sortedArr[j] < sortedArr[j - 1]) {
-  //         const temp = sortedArr[j];
-  //         sortedArr[j] = sortedArr[j - 1];
-  //         sortedArr[j - 1] = temp;
-  //       }
-  //     }
-  //   }
-  //   if (!isSwapped) break;
-  // }
+  if (arr.length > 1) {
+    const middleNumber = sortArr[0];
+    let lessArr = [];
+    let moreArr = [];
 
-  // return sortedArr;
+    for (let i = 1; i < arr.length; i += 1) {
+      if (arr[i] < middleNumber) {
+        lessArr[lessArr.length] = arr[i];
+      } else {
+        moreArr[moreArr.length] = arr[i];
+      }
+    }
+
+    lessArr = sortByAsc(lessArr);
+    moreArr = sortByAsc(moreArr);
+    const tempArr = [...lessArr, middleNumber, ...moreArr];
+
+    for (let i = 0; i < sortArr.length; i += 1) {
+      sortArr[i] = tempArr[i];
+    }
+  }
+
+  return sortArr;
 }
 
 /**
